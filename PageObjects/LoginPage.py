@@ -20,6 +20,7 @@ class LoginPage:
     textOTP5_xpath = "//input[@id='otc-5']"
     textOTP6_xpath = "//input[@id='otc-6']"
     btnContinue_xpath = "//button[text()='Continue']"
+    btmAlert_xpath = "//button[@onclick='sfmX()']"
 
 
 
@@ -85,5 +86,6 @@ class LoginPage:
         self.driver.find_element(By.XPATH,self.btnContinue_xpath).click()
 
     def clickonPopUp(self):
-        action = ActionChains(self.driver)
-        action.send_keys(Keys.ENTER).perform()
+        # action = ActionChains(self.driver)
+        # action.send_keys(Keys.ENTER).perform()
+        self.driver.find_element(By.XPATH,self.btmAlert_xpath).click()

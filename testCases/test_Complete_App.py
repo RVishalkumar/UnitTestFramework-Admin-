@@ -48,12 +48,16 @@ class Test_01_Complete_App(unittest.TestCase):
         self.dp.clickonProfileTag()
         self.dp.clickonProfileImage()
         self.dp.clickonChangePassword()
+        self.dp.clickonProfileImage()
+        self.dp.clickonSettings()
+        self.dp.clickonAccountsMenu()
+
 
 
     @classmethod
     def tearDownClass(cls):
         print("TearDownClass Passed")
-        driver.close()
+        driver.quit()
 
 if __name__ == "__main__":
     unittest.main()
