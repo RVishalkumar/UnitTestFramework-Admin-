@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.service import Service
 
 from PageObjects.DashboardPage import DashboardPage
 from PageObjects.LoginPage import LoginPage
+from PageObjects.AccountsPage import AccountsPage
 from Utilities.readProperties import ReadConfig
 
 class Test_01_Complete_App(unittest.TestCase):
@@ -52,6 +53,17 @@ class Test_01_Complete_App(unittest.TestCase):
         self.dp.clickonSettings()
         self.dp.clickonAccountsMenu()
 
+    def test_03_AccountsPage(self):
+        self.ap = AccountsPage(driver)
+        self.ap.selectRoles()
+        self.ap.setRetailer()
+        self.ap.selectStatus()
+        self.ap.clickonSearch()
+        self.ap.clickonReset()
+        self.ap.clickonAddNewUser()
+        self.ap.setAddUser()
+        self.ap.clickonUserKYC()
+        self.ap.clickonDocumentKYC()
 
 
     @classmethod

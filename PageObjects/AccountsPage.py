@@ -38,6 +38,8 @@ class AccountsPage:
     imgCancelCheck_name = "chequeimg"
     btnStatus_xpath = "//input[@id='status1']"
     btnCreateUser_xpath = "//button[@class='btn btn-primary digiFin_orange_btn']"
+    lnkUserKYCMenu_xpath = "//*[@id='sidebar-menu']/li[3]"
+    lnkdropdownDocumentKYC_xpath = "//*[@href='https://b2b.digifintel.com/users/document/kyc']"
 
     def __init__(self,driver):
         self.driver = driver
@@ -101,4 +103,9 @@ class AccountsPage:
         self.driver.find_element(By.NAME,self.imgCancelCheck_name).send_keys("C://Users//dell//Pictures//Screenshots//Screenshot 2026-05-30 001441.png")
         self.driver.find_element(By.XPATH,self.btnStatus_xpath).click()
         self.driver.find_element(By.XPATH,self.btnCreateUser_xpath).click()
-        
+
+    def clickonUserKYCMenu(self):
+        self.driver.find_element(By.XPATH,self.lnkUserKYCMenu_xpath).click()
+
+    def clickondropdownDocumentKYC(self):
+        self.driver.find_element(By.XPATH,self.lnkdropdownDocumentKYC_xpath).click()
