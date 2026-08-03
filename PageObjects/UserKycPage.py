@@ -9,7 +9,7 @@ class UserKycPage:
     btnApproveAadharBack_xpath = "//div[@class='row gy-4']/div/div/div//form/div/div[3]/div[2]/div[1]/button[1]"
     btnApprovePanCard_xpath = "//div[@class='row gy-4']/div/div/div//form/div/div[4]/div[2]/div[1]/button[1]"
     btnRejectShopImg_xpath = "//div[@class='row gy-4']/div/div/div//form/div/div[5]/div[2]/div[1]/button[2]"
-    btnCancelCheque_xpath = "//div[@class='row gy-4']/div/div/div//form/div/div[6]/div[2]/div[1]/button[1]"
+    btnApproveCancelCheque_xpath = "//div[@class='row gy-4']/div/div/div//form/div/div[6]/div[2]/div[1]/button[1]"
     btnVideoKycApprove_xpath = "//div[@class='row gy-4']/div/div/div//form/div/div[7]/div/div[1]/button[1]"
     btnGenerateAgreement_xpath = "//div[@class='row gy-4']/div/div/div//form/div/div[8]/div/button"
     btnChooseFile_xpath = "//input[@id='superadmin_agreement_file']"
@@ -19,6 +19,7 @@ class UserKycPage:
     lnkdropdownUserApproval_xpath = "//*[@href='https://b2b.digifintel.com/users/document/approval']"
     lnkCommissionsMenu_xpath = "//*[@id='sidebar-menu']/li[4]"
     lnkdropdownAeps_xpath = "//a[@href='https://b2b.digifintel.com/commission/aeps']"
+
 
 
     def __init__(self,driver):
@@ -43,7 +44,7 @@ class UserKycPage:
         self.driver.find_element(By.XPATH,self.btnRejectShopImg_xpath).click()
 
     def clickonCancelCheque(self):
-        self.driver.find_element(By.XPATH,self.btnCancelCheque_xpath).click()
+        self.driver.find_element(By.XPATH,self.btnApproveCancelCheque_xpath).click()
 
     def clickonVideoKYC(self):
         self.driver.find_element(By.XPATH,self.btnVideoKycApprove_xpath).click()
@@ -78,6 +79,8 @@ class UserKycPage:
 
     def clickondropdownAeps(self):
         self.driver.find_element(By.XPATH,self.lnkdropdownAeps_xpath).click()
+
+
 
     
 

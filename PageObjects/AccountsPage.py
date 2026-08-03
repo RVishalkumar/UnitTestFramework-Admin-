@@ -4,8 +4,8 @@ from selenium.webdriver.support.select import Select
 
 class AccountsPage:
 
-    selectRole_xpath = "//select[@id='roleid']"
-    textRetailer_xpath = "//input[@id='parentid-ts-control']"
+    selectRole_xpath = "//div[@class='card-body']/form/div[1]/div[1]/select"
+    textRetailer_xpath = "//div[@class='ts-wrapper single input-hidden full has-items']/div/input"
     selectStatus_xpath = "//select[@id='status']"
     btnSearch_xpath = "//button[@name='filter']"
     btnReset_xpath = "//div[@class='row manageProfile_filter']/div[6]/a"
@@ -66,7 +66,7 @@ class AccountsPage:
 
     def setAddUser(self):
         role=Select(self.driver.find_element(By.XPATH,self.dropdownRole_xpath))
-        role.select_by_visible_text(" whitelabel")
+        role.select_by_index(0)
         self.driver.find_element(By.NAME,self.txtFirstName_name).send_keys("Vishal")
         self.driver.find_element(By.NAME,self.txtLastNAme_name).send_keys("Kumar")
         self.driver.find_element(By.NAME,self.txtEmail_name).send_keys("vrk9407@gmail.com")

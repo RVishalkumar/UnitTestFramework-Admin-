@@ -12,7 +12,7 @@ class LoginPage:
 
     textbox_username_name = "email"
     textbox_password_name = "password"
-    btnLogin_xpath = "(//button[@type='submit'])[1]"
+    btnLogin_xpath = "//button[@id='loginButton']"
     textOTP1_xpath = "//input[@id='otc-1']"
     textOTP2_xpath = "//input[@id='otc-2']"
     textOTP3_xpath = "//input[@id='otc-3']"
@@ -23,7 +23,7 @@ class LoginPage:
     btmAlert_xpath = "//button[@onclick='sfmX()']"
 
 
-
+# //*[@id='loginForm']/div[2]/span
 
     def __init__(self,driver):
         self.driver = driver
@@ -35,7 +35,7 @@ class LoginPage:
         self.driver.find_element(By.NAME,self.textbox_password_name).send_keys(password)
 
     def clickonView(self):
-        Wait.wait_for_click(self.driver,(By.XPATH,"//*[@id='loginForm']/div[2]/span")).click()
+        Wait.wait_for_click(self.driver,(By.XPATH,"//div[@class='max-w-464-px mx-auto w-100']/form/div[2]/span")).click()
         if "login" in self.driver.current_url:
             self.driver.save_screenshot(".\\Screenshortpass\\test_01_LoginPage_loginpass.png")
         else:
