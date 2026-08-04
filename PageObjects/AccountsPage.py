@@ -41,6 +41,8 @@ class AccountsPage:
     lnkUserKYCMenu_xpath = "//*[@id='sidebar-menu']/li[3]"
     lnkdropdownDocumentKYC_xpath = "//*[@href='https://b2b.digifintel.com/users/document/kyc']"
 
+
+
     def __init__(self,driver):
         self.driver = driver
 
@@ -109,3 +111,5 @@ class AccountsPage:
 
     def clickondropdownDocumentKYC(self):
         self.driver.find_element(By.XPATH,self.lnkdropdownDocumentKYC_xpath).click()
+
+

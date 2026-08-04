@@ -6,9 +6,13 @@ from selenium.webdriver.chrome.service import Service
 
 from PageObjects.CommissionsPage import CommissionsPage
 from PageObjects.DashboardPage import DashboardPage
+from PageObjects.FundPage import FundPage
 from PageObjects.LoginPage import LoginPage
 from PageObjects.AccountsPage import AccountsPage
+from PageObjects.ReportsPage import ReportsPage
+from PageObjects.SettingsPage import SettingsPage
 from PageObjects.SubscriptionsPage import SubscriptionsPage
+from PageObjects.TeamsPage import TeamsPage
 from PageObjects.UserKycPage import UserKycPage
 from Utilities.readProperties import ReadConfig
 
@@ -157,18 +161,66 @@ class Test_01_Complete_App(unittest.TestCase):
         self.sp.clickonReportMenu()
         self.sp.clickondropdownLadgerReports()
 
+    def test_07_ReportsPage(self):
+        self.rp = ReportsPage(driver)
+        self.rp.searchLadgerReports()
+        self.rp.clickonAEPSReports()
+        self.rp.searchAEPSReports()
+        self.rp.clickonDMTReports()
+        self.rp.searchDMTReports()
+        self.rp.clickonPayoutReports()
+        self.rp.searchPayoutReports()
+        self.rp.clickonRechargeReports()
+        self.rp.searchRechargeReports()
+        self.rp.clickonBBPSReports()
+        self.rp.searchBBPSReports()
+        self.rp.clickonCCPayReports()
+        self.rp.searchCCPayReports()
+        self.rp.clickonUPIReports()
+        self.rp.searchUPIReports()
+        self.rp.clickonPayinReports()
+        self.rp.searchPayinReports()
+        self.rp.clickonSwiftXReports()
+        self.rp.searchSwiftXReports()
+        self.rp.clickonFundMenu()
+        self.rp.clickondropdownFundRequest()
 
 
+    def test_08_FundPage(self):
+        self.fp = FundPage(driver)
+        self.fp.searchFundRequest()
+        self.fp.clickonAction()
+        self.fp.setFundApproval()
+        self.fp.clickonAddFundRequest()
+        self.fp.clickondropdownCreditPayment()
+        self.fp.setCreditFund()
+        self.fp.clickondropdownDebitPayment()
+        self.fp.clickonSettingsMenu()
+        self.fp.clickondropdownAllBanner()
 
+    def test_09_SettingsPage(self):
+        self.sp = SettingsPage(driver)
+        self.sp.setBanners()
+        self.sp.clickondropdownNotificationAlerts()
+        self.sp.clickonAddNotification()
+        self.sp.setAddNotifications()
+        self.sp.clickondropdownMasterBank()
+        self.sp.clickonAddNewBank()
+        self.sp.setAddBank()
+        self.sp.clickondropdownServiceGateway()
+        self.sp.clickonAddServiceGateway()
+        self.sp.setAddServiceGateway()
+        self.sp.clickonTeamsMenu()
 
-
-
-
-
-
-
-
-
+    def test_10_TeamsPage(self):
+        self.tp = TeamsPage(driver)
+        self.tp.clickonAddNewTeams()
+        self.tp.setAddTeam()
+        self.tp.setManageTeams()
+        self.tp.setAllowPermissions()
+        self.sp = SettingsPage(driver)
+        self.sp.clickonTeamsMenu()
+        self.tp.clickonSalesTeamsMenu()
 
 
     @classmethod
