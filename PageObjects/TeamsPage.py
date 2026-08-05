@@ -64,6 +64,10 @@ class TeamsPage:
         self.driver.find_element(By.XPATH,self.textareaAddress_xpath).send_keys("p n nagar")
         self.driver.find_element(By.XPATH,self.chooseProfileImage_name).send_keys("C://Users//dell//Pictures//Screenshots//pic.png")
         self.driver.find_element(By.XPATH,self.btnSave_xpath).click()
+        if "team" in self.driver.current_url:
+            self.driver.save_screenshot(".\\Screenshortpass\\test_10_TeamsPage_ADDTeamp.png")
+        else:
+            self.driver.save_screenshot(".\\Screenshortfail\\test_10_TeamsPage_ADDTeamsf.png")
 
     def setManageTeams(self):
         rows = self.driver.find_element(By.XPATH, "//table[@id='tableData']/tbody/tr")

@@ -4,16 +4,24 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 
+from PageObjects.AmountThresholdPage import AmountThresholdPage
 from PageObjects.CommissionsPage import CommissionsPage
 from PageObjects.DashboardPage import DashboardPage
 from PageObjects.FundPage import FundPage
 from PageObjects.LoginPage import LoginPage
 from PageObjects.AccountsPage import AccountsPage
+from PageObjects.ManageLeadsPage import ManageLeadsPage
+from PageObjects.MerchantEnquiryPage import MerchantEnquiryPage
 from PageObjects.ReportsPage import ReportsPage
+from PageObjects.SalesTeamPage import SalesTeamPage
+from PageObjects.ServicePanelPage import ServicePanelPage
 from PageObjects.SettingsPage import SettingsPage
+from PageObjects.SinUpPage import SinUpPage
 from PageObjects.SubscriptionsPage import SubscriptionsPage
 from PageObjects.TeamsPage import TeamsPage
 from PageObjects.UserKycPage import UserKycPage
+from PageObjects.VerificationPanelPage import VerificationPanelPage
+from PageObjects.WalletPassbookPage import WalletPassbookPage
 from Utilities.readProperties import ReadConfig
 
 class Test_01_Complete_App(unittest.TestCase):
@@ -31,6 +39,7 @@ class Test_01_Complete_App(unittest.TestCase):
         driver.get(cls.baseurl)
         driver.maximize_window()
         driver.implicitly_wait(5)
+
 
     def test_01_loginPages(self):
         self.lp = LoginPage(driver)
@@ -221,6 +230,51 @@ class Test_01_Complete_App(unittest.TestCase):
         self.sp = SettingsPage(driver)
         self.sp.clickonTeamsMenu()
         self.tp.clickonSalesTeamsMenu()
+
+    def test_11_SalesTeamsPage(self):
+        self.stp = SalesTeamPage(driver)
+        self.stp.clickonAddNewUser()
+        self.stp.setAddTeam()
+        self.stp.clickonServicePanelMenu()
+
+    def test_12_ServicePanelPage(self):
+        self.spp = ServicePanelPage(driver)
+        self.spp.controlCMSServicePanel()
+        self.spp.controlPayoutServicePanel()
+        self.spp.clickonWalletPassbookMenu()
+
+    def test_13_WalletPassbookPage(self):
+        self.wpp = WalletPassbookPage(driver)
+        self.wpp.searchRetailerWalletPassbook()
+        self.wpp.clickonVerificationPanelMenu()
+
+    def test_14_VerificationPanelPage(self):
+        self.vpp = VerificationPanelPage(driver)
+        self.vpp.clickonManageLeadsMenu()
+
+
+    def test_15_ManageLeadsPage(self):
+        self.mlp = ManageLeadsPage(driver)
+        self.mlp.clickonAmountThreshold()
+
+
+    def test_16_AmountThresholdPage(self):
+        self.amtp = AmountThresholdPage(driver)
+        self.amtp.setAmountThreshold()
+        self.amtp.clickonMerchantEnquiryMenu()
+
+    def test_17_MerchantEnquiryPage(self):
+        self.mep = MerchantEnquiryPage(driver)
+        self.mep.searchMerchantList()
+        self.mep.clickonTransactionStatusMenu()
+
+
+
+
+
+
+
+
 
 
     @classmethod
